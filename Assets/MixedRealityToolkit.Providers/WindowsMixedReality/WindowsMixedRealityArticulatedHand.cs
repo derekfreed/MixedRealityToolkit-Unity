@@ -100,10 +100,10 @@ namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input
                 return valid;
             }
         }
-
+        public float HandOffset = 0f;
 #if UNITY_WSA
         private MixedRealityPose currentIndexPose = MixedRealityPose.ZeroIdentity;
-
+        
         private readonly HandRay handRay = new HandRay();
 
 #if WINDOWS_UWP
@@ -314,6 +314,10 @@ namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input
                             }
 
                             TrackedHandJoint handJoint = ConvertHandJointKindToTrackedHandJoint(jointIndices[i]);
+
+                            // ~~~ This is a hack ~~~
+                            unityJointPositions[i] += CurrentPointerRotation * Vector3.forward * HandOffset;
+                            // ~~~ This is a hack ~~~
 
                             if (!unityJointPoses.ContainsKey(handJoint))
                             {

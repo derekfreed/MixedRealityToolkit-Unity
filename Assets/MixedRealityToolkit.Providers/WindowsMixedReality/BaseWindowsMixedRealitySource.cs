@@ -53,6 +53,10 @@ namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input
         private MixedRealityPose currentSourcePose = MixedRealityPose.ZeroIdentity;
 
         private Vector3 currentPointerPosition = Vector3.zero;
+        public Quaternion CurrentPointerRotation
+        {
+            get { return currentPointerRotation; }
+        }
         private Quaternion currentPointerRotation = Quaternion.identity;
         private MixedRealityPose currentPointerPose = MixedRealityPose.ZeroIdentity;
 
