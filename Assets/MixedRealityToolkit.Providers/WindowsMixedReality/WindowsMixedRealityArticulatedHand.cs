@@ -100,7 +100,9 @@ namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input
                 return valid;
             }
         }
+        // ~~~ This is for a hand projector hack ~~~
         public float HandOffset = 0f;
+        // ~~~ This is for a hand projector hack ~~~
 #if UNITY_WSA
         private MixedRealityPose currentIndexPose = MixedRealityPose.ZeroIdentity;
         
@@ -315,9 +317,9 @@ namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input
 
                             TrackedHandJoint handJoint = ConvertHandJointKindToTrackedHandJoint(jointIndices[i]);
 
-                            // ~~~ This is a hack ~~~
+                            // ~~~ This is for a hand projector hack ~~~
                             unityJointPositions[i] += CurrentPointerRotation * Vector3.forward * HandOffset;
-                            // ~~~ This is a hack ~~~
+                            // ~~~ This is for a hand projector hack ~~~
 
                             if (!unityJointPoses.ContainsKey(handJoint))
                             {
